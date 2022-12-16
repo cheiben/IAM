@@ -1,0 +1,20 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyS3AccessOutsideMyBoundary",
+      "Effect": "Deny",
+      "Action": [
+        "s3:*"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringNotEquals": {
+          "aws:ResourceAccount": [
+            "xxxxx"
+          ]
+        }
+      }
+    }
+  ]
+}
