@@ -1,0 +1,23 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "DenyAllNonApprovedRegions",
+            "Effect": "Deny",
+            "NotAction": [
+                "chatbot:*",
+                "iam:*"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringNotEquals": {
+                    "aws:RequestedRegion": [
+                        "us-east-1",
+                        "us-west-2",
+                        "us-gov-west-1"
+                    ]
+                }
+            }
+        }
+    ]
+}
